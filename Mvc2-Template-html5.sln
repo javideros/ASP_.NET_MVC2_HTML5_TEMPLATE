@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTemplate", "MvcTemplate\MvcTemplate.csproj", "{8134376B-97C6-4EE0-BB7E-FF4D639B8259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTemplate.Tests", "MvcTemplate.Tests\MvcTemplate.Tests.csproj", "{195024A5-67F8-4201-BE57-E5BAF1979D6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMembership", "MvcMembership\MvcMembership.csproj", "{985A0289-48ED-4FE0-A03F-4BA96B3D92D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8134376B-97C6-4EE0-BB7E-FF4D639B8259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8134376B-97C6-4EE0-BB7E-FF4D639B8259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8134376B-97C6-4EE0-BB7E-FF4D639B8259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8134376B-97C6-4EE0-BB7E-FF4D639B8259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{195024A5-67F8-4201-BE57-E5BAF1979D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195024A5-67F8-4201-BE57-E5BAF1979D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195024A5-67F8-4201-BE57-E5BAF1979D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195024A5-67F8-4201-BE57-E5BAF1979D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985A0289-48ED-4FE0-A03F-4BA96B3D92D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985A0289-48ED-4FE0-A03F-4BA96B3D92D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985A0289-48ED-4FE0-A03F-4BA96B3D92D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985A0289-48ED-4FE0-A03F-4BA96B3D92D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
