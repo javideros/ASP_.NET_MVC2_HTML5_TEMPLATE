@@ -70,16 +70,19 @@
         <% using (Html.BeginForm("Details", "UserAdministration", new { id = Model.User.ProviderUserKey }))
            { %>
         <fieldset>
-            <p>
-                <label for="email">
-                    Email Address:</label>
-                <% =Html.TextBox("email", Model.User.Email) %>
-            </p>
-            <p>
-                <label for="comments">
-                    Comments:</label>
-                <% =Html.TextArea("comments", Model.User.Comment) %>
-            </p>
+           <legend>Account Information</legend>
+            <ol>
+                <li>
+                    <label for="email">
+                        Email Address:</label>
+                    <% =Html.TextBox("email", Model.User.Email) %>
+                </li>
+                <li>
+                    <label for="comments">
+                        Comments:</label>
+                    <% =Html.TextArea("comments", Model.User.Comment) %>
+                </li>
+            </ol>
             <input type="submit" value="Save Email Address and Comments" />
         </fieldset>
         <% } %>

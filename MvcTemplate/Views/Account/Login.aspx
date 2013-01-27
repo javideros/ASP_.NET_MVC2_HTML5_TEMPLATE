@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <%= Html.LabelFor(m => m.Password) %>
-                        <%= Html.TextBoxFor(m => m.Password) %>
+                        <%= Html.PasswordFor(m => m.Password)%>
                         <%= Html.ValidationMessageFor(m => m.Password) %>
                     </li>
                     <li>

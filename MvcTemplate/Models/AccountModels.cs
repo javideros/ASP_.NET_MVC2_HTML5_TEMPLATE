@@ -46,14 +46,10 @@ namespace MvcTemplate.Models
     [PropertiesMustMatch("Password", "ConfirmPassword", ErrorMessage = "The password and confirmation password do not match.")]
     public class RegisterModel
     {
+
         [Required]
         [DisplayName("User name")]
         public string UserName { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [DisplayName("Email address")]
-        public string Email { get; set; }
 
         [Required]
         [ValidatePasswordLength]
@@ -65,6 +61,19 @@ namespace MvcTemplate.Models
         [DataType(DataType.Password)]
         [DisplayName("Confirm password")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [DisplayName("Email address")]
+        public string Email { get; set; }
+
+        [DisplayName("Secret Question")]
+        public string SecretQuestion { get; set; }
+
+        [DisplayName("Secret Answer")]
+        public string SecretAnswer { get; set; }
+
+        public bool RequirePasswordQuestionAnswerToResetPassword { get; set; }
     }
     #endregion
 
@@ -80,6 +89,7 @@ namespace MvcTemplate.Models
 
         bool ValidateUser(string userName, string password);
         MembershipCreateStatus CreateUser(string userName, string password, string email);
+        MembershipCreateStatus CreateUser(string userName, string password, string email, string passwordQuestion, string passwordAnswer);
         bool ChangePassword(string userName, string oldPassword, string newPassword);
     }
 
@@ -121,6 +131,19 @@ namespace MvcTemplate.Models
 
             MembershipCreateStatus status;
             _provider.CreateUser(userName, password, email, null, null, true, null, out status);
+            return status;
+        }
+
+        public MembershipCreateStatus CreateUser(string userName, string password, string email, string passwordQuestion, string passwordAnswer)
+        {
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
+            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            if (String.IsNullOrEmpty(email)) throw new ArgumentException("Value cannot be null or empty.", "email");
+            if (String.IsNullOrEmpty(passwordQuestion)) throw new ArgumentException("Value cannot be null or empty.", "passwordQuestion");
+            if (String.IsNullOrEmpty(passwordAnswer)) throw new ArgumentException("Value cannot be null or empty.", "passwordAnswer");
+
+            MembershipCreateStatus status;
+            _provider.CreateUser(userName, password, email, passwordQuestion, passwordAnswer, true, null, out status);
             return status;
         }
 

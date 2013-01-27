@@ -39,7 +39,7 @@ namespace MvcTemplate.Controllers
         }
 
         [HttpPost]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
@@ -70,7 +70,7 @@ namespace MvcTemplate.Controllers
         // **************************************
         // URL: /Account/LogOff
         // **************************************
-
+         [HttpPost]
         public ActionResult LogOff()
         {
             FormsService.SignOut();
@@ -94,8 +94,14 @@ namespace MvcTemplate.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
-
+                MembershipCreateStatus createStatus;
+                if (Membership.RequiresQuestionAndAnswer){
+                    createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email, model.SecretQuestion, model.SecretAnswer);
+                }
+                else
+                {
+                    createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+                }
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);

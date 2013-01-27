@@ -34,6 +34,21 @@
                     <%= Html.LabelFor(m => m.ConfirmPassword) %>
                     <%= Html.PasswordFor(m => m.ConfirmPassword) %>
                 </li>
+                <li>
+                    <%= Html.LabelFor(m => m.Email) %>
+                    <%= Html.TextBoxFor(m => m.Email)%>
+                </li>
+                <% if (Membership.RequiresQuestionAndAnswer)
+                   { %>
+                <li>
+                    <%= Html.LabelFor(m => m.SecretQuestion) %>
+                    <%= Html.TextBoxFor(m => m.SecretQuestion)%>
+                </li>
+                <li>
+                    <%= Html.LabelFor(m => m.SecretAnswer)%>
+                    <%= Html.TextBoxFor(m => m.SecretAnswer)%>
+                </li>
+                <%} %>
             </ol>
             <input type="submit" value="Register" />
         </fieldset>
